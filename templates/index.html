@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentiLys - Sentimen Analys</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ url_for('static', filename='img/image.png') }}" alt="SentiLys Logo" class="logo">
+            <h1>SentiLys</h1>
+        </div>
+        <div class="content">
+            <form method="POST" action="{{ url_for('analyze') }}">
+                <textarea name="text" placeholder="Paste Text........"></textarea>
+                <button type="submit">Cek</button>
+            </form>
+            <div class="result">
+                <label>Hasil Analisis</label>
+                <div class="output">{{ analysis_result if analysis_result else '' }}</div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Copyright Ilham Fauzy
+    </footer>
+</body>
+</html>
